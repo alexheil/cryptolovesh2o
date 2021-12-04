@@ -1,0 +1,18 @@
+<% content_for :post_og_header do %>
+  <meta name="description" content="<%= truncate(@post.description, length: 230) %>" />
+
+  <meta property="og:url" content="<%= post_url(@post) %>" />
+  <meta property="og:title" content="<%= full_title(yield(:title)) %>" />
+  <meta property="og:description" content="<%= truncate(@post.description, length: 230) %>" />
+  <meta property="og:image" content="<%= @post.image %>" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Ninth Digital" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="<%= full_title(yield(:title)) %>" />
+  <meta name="twitter:description" content="<%= truncate(@post.description, length: 230) %>" />
+  <meta name="twitter:image" content="<%= @post.image %>" />
+  <meta name="twitter:url" content="<%= post_url(@post) %>" />
+  <meta name="twitter:site" content="@ninthdigital" />
+  <meta name="twitter:creator" content="@ninthdigital" />
+<% end %>

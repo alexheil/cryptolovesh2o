@@ -1,0 +1,22 @@
+<%= provide(:title, "Edit A Category") %>
+
+<div class="post-container">
+
+  <div class="title3 center pb3 bold">
+    Edit a category
+  </div>
+
+  <div class="form-container border">
+    <%= form_for(@category, url: category_path) do |f| %>
+      <span id="category_errors"><%= render 'partials/errors/category_errors' %></span>
+
+      <div class="field">
+        <%= f.label :title %>
+        <%= f.text_field :title, class: "text-field" %>
+      </div>
+
+      <%= f.submit "Create category", data: { disable_with: 'Creating...' }, class: "main-button" %>
+    <% end %>
+  </div>
+
+</div>

@@ -1,0 +1,67 @@
+<%= provide(:title, sanitize(@post.title) + " | " + sanitize(@post.category.title)) %>
+
+<%= render 'partials/cards/post_cards' %>
+
+<div class="main-container">
+  <div class="img-border">
+    <img class="post-image" src="<%= @post.image %>" alt="<%= @post.title %>"/>
+  </div>
+</div>
+
+<div class="post-container">
+
+  <div class="pb5"></div>
+  <div class="t1 center bold">
+    <%= @post.title %>
+  </div>
+
+  <div class="pb4"></div>
+  <div class="darkgrey center bold">
+    <%= pluralize(@post.readtime, 'minute') %> to read | <%= posted(@post.created_at) %>
+  </div>
+
+  <div class="pb5"></div>
+  <div class="tldr">
+    <span class="t2">TL;DR</span>
+
+    <%= sanitize(@post.tldr) %>
+  </div>
+
+  <div class="pb5"></div>
+  <%= render 'partials/ads/ads' %>
+
+  <div class="pb2"></div>
+  <div class="best">
+    <%= sanitize(@post.content) %>
+  </div>
+  
+  <%= render 'partials/share/post_share_buttons' %>
+
+  <div class="pb7"></div>
+  <div class="title2 center">
+    Recent Posts
+  </div>
+  <div class="pb3"></div>
+  <% @recent_posts.each do |post| %>
+    <div class="center">
+      <%= link_to post_path(post) do %>
+        <img class="half-container-image" src="<%= post.image %>" alt="<%= post.title %>"/>
+        <div class="pb3"></div>
+        <div class="title2 half-container-max-title">
+          <%= post.title %>
+        </div>
+        <div class="pb1"></div>
+        <div class="darkgrey">
+          <%= post.category.title %> | <%= pluralize(post.readtime, 'minute') %> to read | <%= posted(post.created_at) %>
+        </div>
+        <div class="pb1"></div>
+        <div class="black half-container-max-description">
+          <%= post.description %>
+        </div>
+      <% end %>
+    </div>
+    <div class="pb5"></div>
+  <% end %>
+  <%= link_to 'View all posts', posts_path, class: "main-button" %>
+
+</div>

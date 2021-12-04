@@ -1,0 +1,22 @@
+<%= provide(:title, "Contact Panel") %>
+
+<div class="post-container">
+
+  <div class="title1 center">
+    Contact Panel
+  </div>
+
+  <div class="pb3"></div>
+
+  <% @contacts.each do |contact| %>
+    <div class="small-border">
+      <%= link_to contact.title, contact_path(contact) %>
+    </div>
+
+    <div class="pb1"></div>
+  <% end %>
+
+  <div class="small-border center">
+    <%= paginate @contacts %>
+  </div>
+</div>

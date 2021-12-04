@@ -1,0 +1,60 @@
+<%= provide(:title, "Edit Your Settings") %>
+
+<div class="main-container">
+
+  <div class="title3 center pb3 bold">
+    Edit your settings
+  </div>
+
+  <div class="form-container border">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+
+      <div class="field">
+        <%= f.label :email %>
+        <%= f.email_field :email, autocomplete: "email", class: "text-field" %>
+      </div>
+
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div class="padding-vertical-three">
+          Currently waiting confirmation for: <%= resource.unconfirmed_email %>
+        </div>
+      <% end %>
+
+      <div class="field">
+        <%= f.label :password %> <span class="darkgrey mini-text">Leave blank if you don't want to change it. 8 characters minimum.</span>
+        <%= f.password_field :password, class: "text-field" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :current_password %> <span class="darkgrey mini-text">*</span> <span class="darkgrey mini-text">Your current password confirms your changes.</span>
+        <%= f.password_field :current_password, class: "text-field" %>
+      </div>
+
+
+      <%= f.submit "Update settings", data: { disable_with: 'Updating...' }, class: "main-button" %>
+    <% end %>
+  </div>
+
+  <div class="pt10">
+    <div class="form-container border">
+      <div class="title2 center pb2">
+        Delete your account?
+      </div>
+
+      <div class="pb2 center">
+        We would be sad to see you go without an explaination first. Is there anything we can do? Contact us!
+      </div>
+
+      <div class="pb2 center">
+       You can never undo this.
+      </div>
+
+      <div>
+        <%= button_to "Delete my account", registration_path(resource_name), data: { confirm: "Are you sure? Your account and recipes will be lost forever." }, method: :delete, class: "delete-button" %>
+      </div>
+
+    </div>
+  </div>
+
+</div>

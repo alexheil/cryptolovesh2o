@@ -1,0 +1,64 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+en:
+  errors:
+    format: "%{message}"
+  activerecord:
+    errors:
+      models:
+        comment:
+          attributes:
+            user_id:
+              blank: "You're missing a user to comment with."
+            u_post_id:
+              blank: "You're missing a post to comment on."
+            content:
+              blank: "Your comment seems to be blank."
+              too_short: "We need some more thought! Make your comment a little longer."
+              too_long: "Your comment is too long. It needs to be under 10000 characters."
+        u_post:
+          attributes:
+            title:
+              blank: "Your title is blank."
+              too_long: "Your title is too long. It needs to be under 255 characters."
+            image:
+              blank: "Your image is missing."
+        u_block:
+          attributes:
+            content:
+              blank: "Your content is missing."
+              too_short: "Your content is too short! 100 characters minimum."
+              too_long: "Your content is too long. It needs to be under 65536 characters."
+            image:
+              blank: "Your image is missing."
+        user:
+          attributes:
+            username:
+              blank: "Username cannot be blank."
+              too_long: "Your username is too long. It needs to be under 50 characters."
+              taken: "This username is taken."
+              invalid: "Username is invalid. It must be alphanumeric. It cannot contain spaces."
+            email:
+              blank: "Email cannot be blank."
+            password:
+              blank: "Password cannot be blank."
+              too_short: "Your password is too short! 8 characters minimum."

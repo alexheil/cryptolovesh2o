@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+
+  <body style="width: 94%; max-width: 600px; padding: 30px 10px; margin: auto; font-size: 18px; line-height: 1.65em; letter-spacing: 0.25px; font-family: Nunito, Helvetica, Arial, sans-serif; font-weight: 400; background: transparent; color: #202324; -webkit-font-smoothing: antialiased;">
+
+    <%= yield %>
+
+    <div style="padding-bottom: 100px;"></div>
+
+    <div style="text-align: center;">
+      <% if @user %>
+        <%= link_to "Click here to go to your account on Ninth Digital", user_url(@user), style: "text-decoration: none; color: #fc9580; cursor: pointer; -webkit-transition: .3s; font-weight: 700;" %>
+      <% else %>
+        <%= link_to "Click here to go to back to Ninth Digital", root_url, style: "text-decoration: none; color: #fc9580; cursor: pointer; -webkit-transition: .3s; font-weight: 700;" %>
+      <% end %>
+    </div>
+
+    <div style="padding-bottom: 100px;"></div>
+
+    <div style="text-align: center; font-size: 1.25em; font-weight: 700;">
+      Our social media:
+    </div>
+
+    <div style="padding-bottom: 10px;"></div>
+
+    <div style="text-align: center;">
+      <a style="color: #c32aa3; margin: 0 5px; text-decoration: none; cursor: pointer; -webkit-transition: .3s; font-weight: 700;" href="https://instagram.com/ninthdigital">Instagram</a> | <a style="color: #55acee; margin: 0 5px; text-decoration: none; cursor: pointer; -webkit-transition: .3s; font-weight: 700;" href="https://twitter.com/ninthdigital">Twitter</a> | <a style="color: #3b5998; margin: 0 5px; text-decoration: none; cursor: pointer; -webkit-transition: .3s; font-weight: 700;" href="https://www.facebook.com/ninth.digital.for.humans">Facebook</a>
+    </div>
+
+    <div style="padding-bottom: 100px;"></div>
+
+    <div style="text-align: center;">
+
+      <div style="font-size: .75em; line-height: 1em;">
+        <%= link_to(root_url, style: "text-decoration: none; color: #fc9580; cursor: pointer; -webkit-transition: .3s; font-weight: 700;") do %>
+          <span style="color: #fc9580; font-weight: 700;">ninth</span><span style="color: #202324; font-weight: 400;">.</span><span style="color: #80e7fc; font-weight: 300;">digital</span>
+        <% end %>
+      </div>
+
+      <div style="padding-bottom: 10px;"></div>
+
+      <div style="font-size: .75em; line-height: 1em;">
+        694 West Ave
+      </div>
+
+      <div style="padding-bottom: 10px;"></div>
+
+      <div style="font-size: .75em; line-height: 1em;">
+        Buffalo, New York 14213
+      </div>
+
+      <div style="padding-bottom: 10px;"></div>
+
+      <div style="font-size: .75em; line-height: 1em;">
+        <%= link_to "Unsubscribe", (@user ? edit_user_settings_url(@user) : unsubscribe_email_url(@email)), style: "text-decoration: none; color: #fc9580; cursor: pointer; -webkit-transition: .3s; font-weight: 700;" %>
+      </div>
+    </div>
+
+  </body>
+</html>

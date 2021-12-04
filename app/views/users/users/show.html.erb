@@ -1,0 +1,77 @@
+<%= provide(:title, sanitize(display_name(@user)) + " on Ninth Digital") %>
+
+<% unless @posts.present? %>
+  <% if user_signed_in? && current_user == @user %>
+    <%= link_to "Add A Post?", new_user_u_post_path(current_user), class: "edit-link edit-padding" %>
+  <% end %>
+<% end %>
+
+<% unless @settings.hero_style_0? %>
+  <% if @hero_post.present? %>
+    <div class="<%= @settings.hero_style %>">
+        
+      <div class="flex">
+        <div class="hero-image-container">
+          <img class="hero-image" src="<%= @hero_post.image %>" alt="<%= @hero_post.title %> | <%= @settings.title %>"/>
+        </div>
+
+        <div class="hero-content-container">
+          <%= link_to title_2(@hero_post.title), user_u_post_path(@user, @hero_post) %>
+          <%= spacing_static('b', 'half') %>
+          <%= color_darkgrey("#{@hero_post.readtime} minute read | #{posted(@hero_post.created_at)}") %>
+          <%= spacing_static('b', 'half') %>
+          <%= @hero_post.description %>
+          <%= spacing_static('b', 'half') %>
+          <%= link_to(user_u_post_path(@user, @hero_post)) do %>
+            <div class="follow-<%= @settings.button_style %>">
+              Read more
+            </div>
+          <% end %>
+        </div>
+      </div>
+
+      <%= spacing_static('b', '5') %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="<%= @settings.blog_style %>">
+  <div class="content-container">
+
+    <% if @posts.present? %>
+      <div class="flex">
+        <% @posts.each do |post| %>
+          <div class="blog-style-container">
+            <div class="flex">
+              <div class="blog-image-container">
+                <img class="blog-image" srcset="<%= post.image.thumb_600.url %> 600w, <%= post.image.thumb_450.url %> 450w, <%= post.image.thumb_350.url %> 350w, <%= post.image.thumb_800.url %> 800w" sizes="(max-width: 600px) 350px, 600px" src="<%= post.image.url %>" alt="<%= post.title %>"/>
+              </div>
+
+              <div class="blog-content-container">
+                <%= link_to title_4(post.title), user_u_post_path(@user, post) %>
+                <%= spacing_static('b', 'half') %>
+                <%= color_darkgrey("#{post.readtime} minute read | #{posted(post.created_at)}") %>
+                <%= spacing_static('b', 'half') %>
+                <%= post.description %>
+                <%= spacing_static('b', 'half') %>
+                <%= link_to(user_u_post_path(@user, post)) do %>
+                  <div class="follow-<%= @settings.button_style %>">
+                    Read more
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+
+      <% if @user.u_posts.count > 15 %>
+        <div class="center">
+          <%= paginate @posts %>
+        </div>
+      <% end %>
+
+    <% end %>
+
+  </div>
+</div>

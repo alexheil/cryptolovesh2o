@@ -1,0 +1,36 @@
+<%= provide(:title, "Register") %>
+
+<div class="main-container">
+
+  <div class="title3 center pb3 bold">
+    Register
+  </div>
+
+  <div class="form-container border">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+
+      <div class="field">
+        <%= f.label :email %> <span class="darkgrey mini-text">*</span>
+        <%= f.email_field :email, autocomplete: "email", class: "text-field" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password %> <span class="darkgrey mini-text">*</span> <span class="darkgrey mini-text"><%= @minimum_password_length.to_s + " characters minimum" if @minimum_password_length %></span>
+        <%= f.password_field :password, autocomplete: "new-password", class: "text-field" %>
+      </div>
+
+      <%= f.submit "Sign up", data: { disable_with: 'Registering...' }, class: "main-button" %>
+    <% end %>
+
+    <div class="mini-text center darkgrey pt1">
+      By clicking <span class="bold">Sign up</span> you agree to the <%= link_to "Terms of Use", 'terms_path' %>.
+    </div>
+  </div>
+
+  <div class="pt3 center">
+    <%= link_to "Do you already have an account? Log in here!", sign_in_path %>
+  </div>
+
+</div>
+

@@ -1,0 +1,94 @@
+<header class="nd-header-container nd-header-padding">
+  <div class="nd-header-line-height">
+    <div class="flex">
+
+      <div class="nd-title-container">
+        <div class="flex">
+          <div class="nd-header-logo-container">
+            <%= link_to(root_url) do %>
+              <div class="nd-header-logo">
+                <%= image_tag("ninth-digital-logo.png", alt: "Ninth Digital Logo") %>
+              </div>
+            <% end %>
+          </div>
+
+          <div class="nd-header-title-container">
+            <%= link_to root_url do %>
+              <span class="bold">ninth</span><span class="normal">.</span><span class="thin">digital</span>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+      <div class="nd-nav-container right">
+        
+        <nav class="nd-header">
+          <% if user_signed_in? %>
+            <%= link_to(user_path(current_user)) do %>
+              <li class="nd-header-logo"><%= current_user.setting.logo? ? image_tag(current_user.setting.logo.thumb.url, alt: 'Image') : sanitize("<span class='nd-header-profile-pic'><i class='fas fa-user'></i></span>") %></li>
+            <% end %>
+          <% else %>
+            <span class="desktop-only"><li><%= link_to 'Sign In', sign_in_path, class: "nav-links" %></li></span>
+            <span class="desktop-only"><li><%= link_to 'Register', register_path, class: "nav-links" %></li></span>
+          <% end %>
+          <li id="menu-click-open"><i class="fas fa-ellipsis-v"></i></li>
+        </nav>
+      </div>
+
+    </div>
+  </div>
+</header>
+<div class="nd-header-border"></div>
+
+<div id="nd-menu-container"> 
+  <div class="nd-side-menu">
+    <header class="nd-header-container nd-header-padding">
+      <div class="nd-header-line-height">
+
+        <div class="flex">
+
+          <div class="nd-title-container">
+            <div class="flex">
+              <div class="nd-header-logo-container">
+                <%= link_to(root_url) do %>
+                  <div class="nd-header-logo">
+                    <%= image_tag("ninth-digital-logo.png", alt: "Ninth Digital Logo") %>
+                  </div>
+                <% end %>
+              </div>
+
+              <div class="nd-header-title-container">
+                <%= link_to root_url do %>
+                  <span class="bold">ninth</span><span class="normal">.</span><span class="thin">digital</span>
+                <% end %>
+              </div>
+            </div>
+          </div>
+
+          <div class="nd-nav-container right">
+            <div id="menu-click-close">
+              <i class="fas fa-times"></i>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <ul>
+        <div class="pb3"></div>
+        <% if user_signed_in? %>
+          <li><%= link_to 'Dashboard', user_dashboard_path(current_user), class: "nav-links" %></li>
+          <li><%= link_to 'New Post', new_user_u_post_path(current_user), class: "nav-links" %></li>
+          <li><%= link_to 'Account', user_path(current_user), class: "nav-links" %></li>
+          <li><%= link_to 'Design', edit_user_setting_path(current_user, current_user.setting), class: "nav-links" %></li>
+          <li><%= link_to 'Settings', edit_user_account_path(current_user), class: "nav-links" %></li>
+          <li><%= link_to 'Sign Out', sign_out_path, class: "nav-links" %></li>
+        <% else %>
+          <li><%= link_to 'Sign In', sign_in_path, class: "nav-links" %></li>
+          <li><%= link_to 'Register', register_path, class: "nav-links" %></li>
+        <% end %>
+      </ul>
+
+    </header>
+  </div>
+</div>

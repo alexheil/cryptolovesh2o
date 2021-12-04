@@ -1,0 +1,52 @@
+<%= provide(:title, "Create A Post") %>
+
+<div class="post-container">
+
+  <div class="title3 center pb3 bold">
+    Create a post
+  </div>
+
+  <div class="form-container border">
+    <%= form_for(@post, url: posts_path) do |f| %>
+      <span id="post_errors"><%= render 'partials/errors/post_errors' %></span>
+
+      <div class="field">
+        <%= f.label :title %>
+        <%= f.text_field :title, class: "text-field" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :readtime %>
+        <%= f.text_field :readtime, class: "text-field" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :image %>
+        <%= f.text_field :image, class: "text-field" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :description %>
+        <%= f.text_area :description, class: "text-area" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :tldr %>
+        <%= f.text_area :tldr, class: "text-area" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :content %>
+        <%= f.text_area :content, class: "text-area-large" %>
+      </div>
+
+      <%= f.label :category_id, "Category" %>
+      <%= f.collection_select(:category_id, @categories, :id, :title, {:include_blank => 'No category'}, { :class => "select-field" }) %>
+
+      <div class="pb2"></div>
+
+      <%= f.submit "Create post", data: { disable_with: 'Creating...' }, class: "main-button" %>
+    <% end %>
+  </div>
+
+</div>

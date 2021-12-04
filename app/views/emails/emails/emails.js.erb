@@ -1,0 +1,19 @@
+<% if @result %>
+  $('.email_form').html('<%=  escape_javascript(render :partial => 'emails/partials/success') %>');
+  $('.post_email_form').html('<%=  escape_javascript(render :partial => 'emails/partials/success') %>');
+  $('.about_email_form').html('<%=  escape_javascript(render :partial => 'emails/partials/success') %>');
+  $('.email_errors').fadeOut(300);
+  $('.flash_js').fadeIn(300);
+  $('.flash_js').html('<%=  escape_javascript(render :partial => 'partials/meta/flash') %>');
+  setTimeout(function() {
+    $('.flash_js').fadeOut();
+  }, 8000);
+<% else %>
+  $('.email_errors').fadeIn(300);
+  $('.email_errors').html('<%= escape_javascript(render :partial => 'partials/errors/email_errors') %>');
+  $('.flash_js').fadeIn(300);
+  $('.flash_js').html('<%=  escape_javascript(render :partial => 'partials/meta/flash') %>');
+  setTimeout(function() {
+    $('.flash_js').fadeOut();
+  }, 8000);
+<% end %>

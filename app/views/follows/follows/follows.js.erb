@@ -1,0 +1,7 @@
+$('.follows_button').html('<%= escape_javascript(render :partial => 'follows/partials/follows_button') %>');
+
+$('.flash_js').fadeIn(300);
+$('.flash_js').html('<%=  escape_javascript(render :partial => 'partials/meta/flash') %>');
+setTimeout(function() {
+  $('.flash_js').fadeOut(3000);
+}, 5000);

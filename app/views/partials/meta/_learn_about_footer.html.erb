@@ -1,0 +1,8 @@
+<% unless user_signed_in? && current_user.subscriptions.any? %>
+  <div class="pb7"></div>
+  <div class="post-container">
+    <div class="title2 center">
+      <%= link_to 'Learn about Ninth Digital', about_path, class: "large-main-button" %>
+    </div>
+  </div>
+<% end %>

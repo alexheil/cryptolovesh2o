@@ -1,0 +1,18 @@
+<% content_for :category_og_header do %>
+  <meta name="description" content="Find helpful blog posts in <%= @category.title %>." />
+
+  <meta property="og:url" content="<%= category_url(@category) %>" />
+  <meta property="og:title" content="<%= full_title(yield(:title)) %>" />
+  <meta property="og:description" content="Find helpful blog posts in <%= @category.title %>." />
+  <meta property="og:image" content="<%= @category.posts.first.image if @category.posts.any? %>" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Ninth Digital" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="<%= full_title(yield(:title)) %>" />
+  <meta name="twitter:description" content="Find helpful blog posts in <%= @category.title %>." />
+  <meta name="twitter:image" content="<%= @category.posts.first.image if @category.posts.any? %>" />
+  <meta name="twitter:url" content="<%= category_url(@category) %>" />
+  <meta name="twitter:site" content="@ninthdigital" />
+  <meta name="twitter:creator" content="@ninthdigital" />
+<% end %>

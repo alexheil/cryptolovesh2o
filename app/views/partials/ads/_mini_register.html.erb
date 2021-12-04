@@ -1,0 +1,30 @@
+<div class="padding-horizontal-1">
+  <%= spacing_static('b', '1') %>
+  <div class="mini-title center bold padding-10">
+     Sign up for free to <%= "follow #{display_name(@user)} and" if @user %> share your own content!
+  </div>
+  <%= spacing_static('b', '1') %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+    <div class="flex">
+      <div class="three-column-form">
+        <%= f.label :username %> <span class="darkgrey mini-text">*</span>
+        <%= spacing_static('b', 'half') %>
+        <%= f.text_field :username, class: "text-field" %>
+      </div>
+      <div class="three-column-form">
+        <%= f.label :email %> <span class="darkgrey mini-text">*</span>
+        <%= spacing_static('b', 'half') %>
+        <%= f.email_field :email, autocomplete: "email", class: "text-field" %>
+      </div>
+      <div class="three-column-form">
+        <%= f.label :password %> <span class="darkgrey mini-text">*</span>
+        <%= spacing_static('b', 'half') %>
+        <%= f.password_field :password, autocomplete: "new-password", class: "text-field" %>
+      </div>
+    </div>
+    <%= spacing_static('b', '1') %>
+    <%= f.submit "Sign up", data: { disable_with: 'Registering...' }, class: "main-button" %>
+  <% end %>
+  <%= spacing_static('b', '1') %>
+</div>

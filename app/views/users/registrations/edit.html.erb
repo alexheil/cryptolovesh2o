@@ -1,0 +1,88 @@
+<div class="flex">
+
+  <div class="changes-container">
+    <div class="border-right">
+
+      <div class="changes-max">
+
+        <div class="border-bottom">
+          <div class="padding-10 tab-background-colored">
+            <%= spacing_static('b', '2') %>
+            <%= title_4("SETTINGS") %>
+            <%= spacing_static('b', '2') %>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+
+
+
+  <div class="preview-container"> 
+    <div class="<%= @settings.padding %> <%= @settings.font_size %> <%= @settings.font_weight %> <%= @settings.font_letterspacing %> <%= @settings.line_height %> <%= @settings.border_radius %> <%= @settings.padding %> <%= @settings.shadows %> <%= @settings.font_family %> <%= @settings.animation_time %> <%= @settings.title_size %> <%= @settings.title_family %> <%= @settings.title_weight %> <%= @settings.title_align %> <%= @settings.link_weight %> <%= @settings.link_style %>">
+
+      <%= render 'users/partials/headers/user_header' %>
+
+      <div class="main-container">
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+          <%= render "devise/shared/error_messages", resource: resource %>
+
+          <%= spacing_static('b', '2') %>
+          <%= label_and_description("Username *", "Your username and URL. No spaces.") %>
+          <%= spacing_static('t', '1') %>
+          <%= f.text_field :username, placeholder: 'Username *', class: "text-field" %>
+
+          <%= spacing_static('b', '2') %>
+          <%= label_and_description("Email *", "Your email address.") %>
+          <%= spacing_static('t', '1') %>
+          <%= f.email_field :email, placeholder: 'Email *', class: "text-field" %>
+
+          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+            <div class="padding-vertical-three">
+              Currently waiting confirmation for: <%= resource.unconfirmed_email %>
+            </div>
+          <% end %>
+
+          <%= spacing_static('b', '2') %>
+          <%= label_and_description("New Password", "Leave blank if you don't want to change it. 8 characters minimum.") %>
+          <%= spacing_static('t', '1') %>
+          <%= f.password_field :password, placeholder: 'New Password', class: "text-field" %>
+
+          <%= spacing_static('b', '2') %>
+          <%= label_and_description("Current Password", "Your current password confirms your changes.") %>
+          <%= spacing_static('t', '1') %>
+          <%= f.password_field :current_password, placeholder: 'Current Password', class: "text-field" %>
+
+          <%= spacing_static('b', '2') %>
+          <%= f.submit "Update settings", data: { disable_with: 'Updating...' }, class: "settings-button" %>
+        <% end %>
+
+        <%= spacing_static('b', '10') %>
+        <%= spacing_static('b', '10') %>
+        
+        <div class="delete-title">
+          Delete Account
+        </div>
+
+        <%= spacing_static('b', '2') %>
+        <div class="center">
+          We would be sad to see you go without an explaination first. Is there anything we can do? <%= link_to "Contact us!", new_contact_path, class: "dashboard-side-link" %>
+        </div>
+
+        <%= spacing_static('b', '2') %>
+        <div class="center">
+         You can never undo this.
+        </div>
+
+        <%= spacing_static('b', '2') %>
+        <%= button_to "Delete my account", registration_path(resource_name), data: { confirm: "Are you sure? Your account will be lost forever." }, method: :delete, class: "delete-button" %>
+      </div>
+
+      <%= render 'users/partials/footers/user_footer' %>
+
+    </div>
+  </div>
+</div>

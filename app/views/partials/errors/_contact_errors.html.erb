@@ -1,0 +1,12 @@
+<% if @contact.errors.any? %>
+  <div id="error_explanation">
+    <div class="title1">
+      <%= pluralize(@contact.errors.count, "error") %> prevented your message from sending:
+    </div>
+    <ul>
+    <% @contact.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>

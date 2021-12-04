@@ -1,0 +1,24 @@
+<% unless user_signed_in? %>
+  <div class="pb7"></div>
+  <div class="email-border">
+    <div class="title2 center">
+      Have a website? Perfect!
+    </div>
+    <div class="pb2"></div>
+    <div class="center bold">
+       Enter your email below, and we will teach you how to grow that website using web design, internet marketing, and productivity. We won't spam you (and it's FREE!)
+    </div>
+    <div class="pb3"></div>
+    <%= form_for(@global_email, url: emails_path, remote: true) do |f| %>
+      <span class="email_errors"><%= render 'partials/errors/email_errors' %></span>
+      <div class="flex">
+        <div class="two3rd-container">
+          <%= f.text_field :email, placeholder: 'Your email goes here...', class: "text-field" %>
+        </div>
+        <div class="one3rd-container">
+          <%= f.submit "Get tips!", data: { disable_with: 'Thank you...' }, class: "secondary-button" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>

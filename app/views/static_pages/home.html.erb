@@ -1,0 +1,279 @@
+<% if user_signed_in? && current_user.following.any? %>
+  <div class="main-container">
+    <div class="pb7"></div>
+    <div class="title2">
+      Your Feed
+    </div>
+    <div class="pb3"></div>
+  </div>
+
+  <div class="slider-container">
+    <div class="horizontal-slider horizontal-slider-shadow">
+      <% @feed.each do |post| %>
+        <div class="horizontal-cards">
+          <%= link_to user_u_post_path(post.user, post) do %>
+            <div class="img-border">
+              <img class="card-image" srcset="<%= post.image.thumb_600.url %> 600w, <%= post.image.thumb_450.url %> 450w, <%= post.image.thumb_350.url %> 350w" sizes="(max-width: 600px) 350px, 600px" src="<%= post.image.url %>" alt="<%= post.title %>"/>
+            </div>
+            <div class="pb1"></div>
+            <div class="title1 card-title">
+              <%= post.title %>
+            </div>
+            <div class="pbhalf"></div>
+            <div class="darkgrey">
+              <%= display_name(post.user) %>
+            </div>
+            <div class="darkgrey">
+              <%= post.readtime %> minute read
+            </div>
+            <div class="pb1"></div>
+            <div class="black card-description">
+              <%= post.description %>
+            </div>
+            <div class="pb1"></div>
+            <div class="card-button">
+              Read more...
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+
+<% unless user_signed_in? %>
+  <div class="flex">
+    <div class="home-fifty main-light-background">
+      <div class="pb7"></div>
+      <div class="post-container">
+
+        <div class="home-logo-container">
+          <%= link_to(root_url) do %>
+            <div class="home-logo">
+              <%= image_tag("ninth-digital-logo-email.png", alt: "Ninth Digital Logo") %>
+            </div>
+          <% end %>
+        </div>
+
+        <div class="center title3">
+          <span class="main bold title-underline">ninth</span><span class="black normal title-underline">.</span><span class="secondary thin title-underline">digital</span>
+        </div>
+
+        <div class="pb1"></div>
+        <div class="pbhalf"></div>
+
+        <div class="title2 center">
+          A Publication Platform
+          <div class="pbhalf"></div>
+          — for —
+          <div class="pbhalf"></div>
+          Humans From Anywhere
+        </div>
+
+        <div class="pb7"></div>
+
+        <div class="title1 center">
+          Ninth Digital provides a customizable space for Readers, Writers, Storytellers, Educators, Artists, Poets, and Humans From Anywhere.
+
+          <div class="pb5"></div>
+
+          Share your writing, stories, posts, photos, art, poetry, or content.
+        </div>
+        <div class="pb5"></div>
+      </div>
+    </div>
+    <div class="home-fifty-sign-in secondary-light-background">
+      <%= spacing_static('b', '5') %>
+      <div class="post-container">
+
+        <div class="title2 center">
+          Sign Up For Free
+        </div>
+        <%= spacing_static('b', '3') %>
+
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= render "devise/shared/error_messages", resource: resource %>
+
+          <div class="field">
+            <%= f.label :username %> <span class="darkgrey mini-text">*</span>
+            <%= f.text_field :username, class: "text-field" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :email %> <span class="darkgrey mini-text">*</span>
+            <%= f.email_field :email, autocomplete: "email", class: "text-field" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :password %> <span class="darkgrey mini-text">*</span> <span class="darkgrey mini-text">8 characters minimum</span>
+            <%= f.password_field :password, autocomplete: "new-password", class: "text-field" %>
+          </div>
+
+          <%= f.submit "Sign up", data: { disable_with: 'Registering...' }, class: "main-button" %>
+        <% end %>
+
+        <div class="mini-text center darkgrey pt1">
+          By clicking <span class="bold">Sign up</span> you agree to the <%= link_to "Terms of Use", terms_path %>.
+        </div>
+
+        <div class="pb5"></div>
+        
+        <div class="center">
+          <%= link_to "Do you already have an account? Log in here!", sign_in_path %>
+        </div>
+
+      </div>
+      <%= spacing_static('b', '5') %>
+    </div>
+  </div>
+<% end %>
+
+<div class="main-container">
+  <div class="pb10"></div>
+  <div class="title2">
+    Popular Posts
+  </div>
+  <div class="pb3"></div>
+</div>
+  
+<div class="slider-container">
+  <div class="horizontal-slider horizontal-slider-shadow">
+    <% @posts.each do |post| %>
+      <div class="horizontal-cards">
+        <%= link_to user_u_post_path(post.user, post) do %>
+          <div class="img-border">
+            <img class="card-image" srcset="<%= post.image.thumb_600.url %> 600w, <%= post.image.thumb_450.url %> 450w, <%= post.image.thumb_350.url %> 350w" sizes="(max-width: 600px) 350px, 600px" src="<%= post.image.url %>" alt="<%= post.title %>"/>
+          </div>
+          <div class="pb1"></div>
+          <div class="title1 card-title">
+            <%= post.title %>
+          </div>
+          <div class="pbhalf"></div>
+          <div class="darkgrey">
+            <%= display_name(post.user) %>
+          </div>
+          <div class="darkgrey">
+            <%= post.readtime %> minute read
+          </div>
+          <div class="pb1"></div>
+          <div class="black card-description">
+            <%= post.description %>
+          </div>
+          <div class="pb1"></div>
+          <div class="card-button">
+            Read more...
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
+  
+<% if @tags.any? %>
+  <div class="secondary-border-bottom secondary-light-background">
+    <div class="pb10"></div>
+    <%= spacing_static('b', '5') %>
+    <div class="main-container">
+      <%= title_2("Discover Topics") %>
+      <%= spacing_static('b', '1') %>
+      <% @tags.each do |tag| %>
+        <%= link_to(tag_path(tag), class: "no-underline") do %>
+          <div class="margin-top-half card-button">
+            <%= tag.title %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+    <%= spacing_static('b', '5') %>
+  </div>
+<% end %>
+
+<div class="main-container">
+  <div class="pb10"></div>
+  <div class="title2">
+    Recent Posts
+  </div>
+  <div class="pb3"></div>
+</div>
+  
+<div class="slider-container">
+  <div class="horizontal-slider horizontal-slider-shadow">
+    <% @recent_posts.each do |post| %>
+      <div class="horizontal-cards">
+        <%= link_to user_u_post_path(post.user, post) do %>
+          <div class="img-border">
+            <img class="card-image" srcset="<%= post.image.thumb_600.url %> 600w, <%= post.image.thumb_450.url %> 450w, <%= post.image.thumb_350.url %> 350w" sizes="(max-width: 600px) 350px, 600px" src="<%= post.image.url %>" alt="<%= post.title %>"/>
+          </div>
+          <div class="pb1"></div>
+          <div class="title1 card-title">
+            <%= post.title %>
+          </div>
+          <div class="pbhalf"></div>
+          <div class="darkgrey">
+            <%= display_name(post.user) %>
+          </div>
+          <div class="darkgrey">
+            <%= post.readtime %> minute read
+          </div>
+          <div class="pb1"></div>
+          <div class="black card-description">
+            <%= post.description %>
+          </div>
+          <div class="pb1"></div>
+          <div class="card-button">
+            Read more...
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="main-container">
+  <div class="pb10"></div>
+  <div class="title2">
+    Popular Users
+  </div>
+  <div class="pb3"></div>
+</div>
+
+<div class="slider-container">
+  <div class="horizontal-slider horizontal-slider-shadow">
+    <% @users.each do |user| %>
+      <div class="horizontal-cards-user center">
+        <%= link_to user_path(user) do %>
+          <img class="card-image-user img-border" src="<%= user.setting.logo.thumb.url if user.setting.logo? %>" alt="<%= display_name(user) %>"/>
+          <div class="pbhalf"></div>
+          <div class="card-title-user">
+            <%= display_name(user) %>
+          </div>
+          <div class="darkgrey">
+            <%= pluralize(user.followers.count, 'follower') %>
+          </div>
+          <div class="pbhalf"></div>
+          <div class="card-button">
+            Follow
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="main-light-background">
+  <div class="pb10"></div>
+  <%= spacing_static('b', '5') %>
+  <div class="post-container">
+    <div class="title2 center pb3">
+      We support what we love...
+    </div>
+    <div class="center">
+      ...and that's why 3% of our profits go to helping out our environment through Trees.org. Trees.org plants 1 tree for every ten cents donated. Our goal is to plant one tree per Ninth Digital user per month!
+
+      <div class="pb3"></div>
+
+      We also use some of our profits to invest in companies that we would like to see successful in the future. We aim for industries that support the environment such as green power, solar energy, and waste reduction.
+    </div>
+  </div>
+  <%= spacing_static('b', '5') %>
+</div>

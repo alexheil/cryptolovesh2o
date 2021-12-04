@@ -1,0 +1,22 @@
+<%= provide(:title, "Email Panel") %>
+
+<div class="post-container">
+
+  <div class="title1 center">
+    Email Panel
+  </div>
+
+  <div class="pb3"></div>
+
+  <% @emails.each do |email| %>
+    <div class="small-border">
+      <%= email.email %> - <%= link_to "Delete", email_path(email), data: { confirm: "Are you sure? The email will be lost forever." }, method: :delete, class: "delete-link" %>
+    </div>
+    <div class="pb1"></div>
+  <% end %>
+
+  <div class="small-border center">
+    <%= paginate @emails %>
+  </div>
+
+</div>

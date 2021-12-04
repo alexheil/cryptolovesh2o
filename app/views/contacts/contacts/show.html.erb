@@ -1,0 +1,18 @@
+<%= provide(:title, sanitize(@contact.slug)) %>
+
+<div class="post-container">
+  <div class="title1 center">
+    <%= @contact.title %>
+  </div>
+
+  <div class="pb3"></div>
+  <div class="center bold darkgrey">
+    <%= @contact.display_name %> | <%= @contact.email %>
+  </div>
+
+  <div class="pb3"></div>
+  <div class="best">
+    <%= sanitize(@contact.content) %>
+  </div>
+
+</div>

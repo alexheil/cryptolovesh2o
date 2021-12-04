@@ -1,0 +1,48 @@
+<%= provide(:title, "Contact") %>
+
+<div class="post-container">
+
+  <div class="title3 center">
+    Contact Ninth Digital
+  </div>
+
+  <div class="pb3"></div>
+
+  <div class="darkgrey center mini-text">
+    Contact Ninth Digital using the form below. Be sure to include your name and email, so that we can reach back out to you. Please give us between 24 and 48 hours to respond.
+  </div>
+
+  <div class="pb4"></div>
+
+  <div class="form-container border">
+    <%= form_for(@contact, url: contacts_path) do |f| %>
+      <span id="contact_errors"><%= render 'partials/errors/contact_errors' %></span>
+
+      <div class="field">
+        <%= f.label :display_name, 'Name' %>
+        <%= f.text_field :display_name, class: "text-field" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :email %>
+        <%= f.email_field :email, class: "text-field" %>
+      </div>
+
+
+      <div class="field">
+        <%= f.label :title, 'Subject' %>
+        <%= f.text_field :title, class: "text-field" %>
+      </div>
+
+
+      <div class="field">
+        <%= f.label :content %>
+        <%= f.text_area :content, class: "text-area" %>
+      </div>
+
+
+      <%= f.submit "Send Message", data: { disable_with: 'Sending...' }, class: "main-button" %>
+    <% end %>
+  </div>
+
+</div>

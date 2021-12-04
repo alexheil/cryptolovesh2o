@@ -1,0 +1,49 @@
+<%= provide(:title, sanitize(@category.title) + " Blog Posts") %>
+
+<%= render 'partials/cards/category_cards' %>
+
+<div class="post-container">
+
+  <div class="title3 center">
+    <%= @category.title %>
+  </div>
+
+  <div class="pb7"></div>
+
+  <% if admin_signed_in? %>
+    <%= button_to "Delete", category_path(@category), data: { confirm: "Are you sure? The category will be lost forever." }, method: :delete, class: "delete-button" %>
+    <div class="pb5"></div>
+  <% end %>
+
+  <% @posts.each do |post| %>
+    <div class="center">
+      <%= link_to post_path(post) do %>
+        <div class="img-border">
+          <img class="half-container-image" src="<%= post.image %>" alt="<%= post.title %>"/>
+        </div>
+        <div class="pb3"></div>
+        <div class="title2 half-container-max-title">
+          <%= post.title %>
+        </div>
+        <div class="pb1"></div>
+        <div class="darkgrey">
+          <%= post.category.title %> | <%= pluralize(post.readtime, 'minute') %> to read | <%= posted(post.created_at) %>
+        </div>
+        <div class="pb1"></div>
+        <div class="black half-container-max-description">
+          <%= post.description %>
+        </div>
+      <% end %>
+    </div>
+    <div class="pb5"></div>
+  <% end %>
+
+  <% if @posts.present? %>
+    <% if Post.all.count > 15 %>
+      <div class="center">
+        <%= paginate @posts %>
+      </div>
+    <% end %>
+  <% end %>
+
+</div>
