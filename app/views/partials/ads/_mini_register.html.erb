@@ -1,5 +1,5 @@
-<div class="padding-horizontal-1">
-  <%= spacing_static('b', '1') %>
+<div class="ph3">
+  <div class="pb3"></div>
   <div class="mini-title center bold padding-10">
      Sign up for free to <%= "follow #{display_name(@user)} and" if @user %> share your own content!
   </div>
@@ -26,5 +26,5 @@
     <%= spacing_static('b', '1') %>
     <%= f.submit "Sign up", data: { disable_with: 'Registering...' }, class: "main-button" %>
   <% end %>
-  <%= spacing_static('b', '1') %>
+  <div class="pb3"></div>
 </div>

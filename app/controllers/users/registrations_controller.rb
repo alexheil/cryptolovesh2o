@@ -15,25 +15,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
     super
 
-    if Rails.env.production?
-      Stripe.api_key = ENV['STRIPE_API_KEY']
-    else
-      Stripe.api_key = "sk_test_51HPXXkIvhiSXzhOGeV4VKjTS9IRWxKu5TkGStdnRqWDDIMiWXBTmV1gyXL21HOXpCY2GRBMuMPvbA59ARKbG881a00QExFmNJ6"
-    end
-
-    #create settings
-    @settings = @user.create_setting(settings_params)
-    
-    #create Stripe customer
-    customer = Stripe::Customer.create(
-      email: @user.email
-    )
-
-    #save Stripe customer id to user
-    @user.update_attributes(
-      customer_id: customer.id
-    )
-
     #create email
     unless Email.where(email: @user.email).exists?
       email = Email.create(

@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   end
 
   resources :posts, controller: 'posts/posts', path: 'blog-posts'
+  resources :categories, controller: 'categories/categories', path: 'category'
 
   resources :contacts, controller: 'contacts/contacts', path: 'contact'
 
