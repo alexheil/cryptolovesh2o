@@ -33,13 +33,6 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
       t.string   :unlock_token # Only if unlock strategy is :email or :both
       t.datetime :locked_at
 
-      t.integer :status, default: 0
-
-      t.string :customer_id
-      t.string :site_link
-      t.string :http_domain
-      t.string :https_domain
-
       t.string :slug, null: false, default: ""
 
       t.timestamps null: false

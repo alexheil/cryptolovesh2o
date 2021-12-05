@@ -5,7 +5,7 @@ class StaticPagesController < ApplicationController
   def home
     @email = Email.new
     @users = User.popular.limit(24)
-    @feed = current_user.feed.newest.limit(16) if user_signed_in?
+    #@feed = current_user.feed.newest.limit(16) if user_signed_in?
   end
 
   def about

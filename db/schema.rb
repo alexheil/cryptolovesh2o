@@ -107,11 +107,6 @@ ActiveRecord::Schema.define(version: 20210120151026) do
     t.integer  "failed_attempts",        default: 0,  null: false
     t.string   "unlock_token"
     t.datetime "locked_at"
-    t.integer  "status",                 default: 0
-    t.string   "customer_id"
-    t.string   "site_link"
-    t.string   "http_domain"
-    t.string   "https_domain"
     t.string   "slug",                   default: "", null: false
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false

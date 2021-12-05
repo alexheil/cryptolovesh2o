@@ -59,10 +59,10 @@ class User < ApplicationRecord
   end
 
   # get a list of posts from the users you follow
-  def feed
-    following_ids = "SELECT followed_id FROM follows WHERE follower_id = :user_id"
-    UPost.where("user_id IN (#{following_ids}) OR user_id = :user_id", user_id: id)
-  end
+  #def feed
+  #  following_ids = "SELECT followed_id FROM follows WHERE follower_id = :user_id"
+  #  UPost.where("user_id IN (#{following_ids}) OR user_id = :user_id", user_id: id)
+  #end
 
   private
 
