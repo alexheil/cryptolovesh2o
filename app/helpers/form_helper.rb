@@ -51,8 +51,8 @@ module FormHelper
 
   def label_and_description(title, description)
     concat(title_4(title))
-    concat(spacing_static('b', '1'))
-    concat(color_darkgrey(description))
+    concat(spacing_static('b', 'half'))
+    concat(color_darkgrey(description, 'mini-text'))
     spacing_static('b', 'half')
   end
 

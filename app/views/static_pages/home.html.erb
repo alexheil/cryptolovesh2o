@@ -1,46 +1,3 @@
-<% if user_signed_in? && current_user.following.any? %>
-  <div class="main-container">
-    <div class="pb7"></div>
-    <div class="title2">
-      Your Feed
-    </div>
-    <div class="pb3"></div>
-  </div>
-
-  <div class="slider-container">
-    <div class="horizontal-slider horizontal-slider-shadow">
-      <% @feed.each do |post| %>
-        <div class="horizontal-cards">
-          <%= link_to user_u_post_path(post.user, post) do %>
-            <div class="img-border">
-              <img class="card-image" srcset="<%= post.image.thumb_600.url %> 600w, <%= post.image.thumb_450.url %> 450w, <%= post.image.thumb_350.url %> 350w" sizes="(max-width: 600px) 350px, 600px" src="<%= post.image.url %>" alt="<%= post.title %>"/>
-            </div>
-            <div class="pb1"></div>
-            <div class="title1 card-title">
-              <%= post.title %>
-            </div>
-            <div class="pbhalf"></div>
-            <div class="darkgrey">
-              <%= display_name(post.user) %>
-            </div>
-            <div class="darkgrey">
-              <%= post.readtime %> minute read
-            </div>
-            <div class="pb1"></div>
-            <div class="black card-description">
-              <%= post.description %>
-            </div>
-            <div class="pb1"></div>
-            <div class="card-button">
-              Read more...
-            </div>
-          <% end %>
-        </div>
-      <% end %>
-    </div>
-  </div>
-<% end %>
-
 <% unless user_signed_in? %>
   <div class="flex">
     <div class="home-fifty main-light-background">
@@ -130,33 +87,37 @@
 
 <div class="main-container">
   <div class="pb10"></div>
-  <div class="title2">
-    Popular Users
-  </div>
-  <div class="pb3"></div>
-</div>
+  
+  <% @posts.each do |post| %>
+    <div class="center">
+      <%= link_to post_path(post) do %>
+        <div class="img-border">
+          <img class="half-container-image" src="<%= post.image %>" alt="<%= post.title %>"/>
+        </div>
+        <div class="pb3"></div>
+        <div class="title2 half-container-max-title">
+          <%= post.title %>
+        </div>
+        <div class="pb1"></div>
+        <div class="darkgrey">
+          <%= pluralize(post.readtime, 'minute') %> to read | <%= posted(post.created_at) %>
+        </div>
+        <div class="pb1"></div>
+        <div class="black half-container-max-description">
+          <%= post.description %>
+        </div>
+      <% end %>
+    </div>
+    <div class="pb5"></div>
+  <% end %>
 
-<div class="slider-container">
-  <div class="horizontal-slider horizontal-slider-shadow">
-    <% @users.each do |user| %>
-      <div class="horizontal-cards-user center">
-        <%= link_to user_path(user) do %>
-          <img class="card-image-user img-border" src="<%= user.setting.logo.thumb.url if user.setting.logo? %>" alt="<%= display_name(user) %>"/>
-          <div class="pbhalf"></div>
-          <div class="card-title-user">
-            <%= display_name(user) %>
-          </div>
-          <div class="darkgrey">
-            <%= pluralize(user.followers.count, 'follower') %>
-          </div>
-          <div class="pbhalf"></div>
-          <div class="card-button">
-            Follow
-          </div>
-        <% end %>
+  <% if @posts.present? %>
+    <% if Post.all.count > 15 %>
+      <div class="center">
+        <%= paginate @posts %>
       </div>
     <% end %>
-  </div>
+  <% end %>
 </div>
 
 <div class="main-light-background">

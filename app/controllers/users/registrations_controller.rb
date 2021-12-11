@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
-  layout :resolve_layout
-
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
@@ -29,10 +27,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   # GET /resource/edit
-  def edit
-    @settings = current_user.setting
-    super
-  end
+  #def edit
+  #  super
+  #end
 
   # PUT /resource
   # def update
@@ -76,14 +73,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   private
-
-    def resolve_layout
-      if action_name == 'edit' 
-        'u_dashboard'
-      else
-        'lite'
-      end
-    end
 
     def welcome_email(email)
       EmailMailer.welcome_email(email).deliver_now
