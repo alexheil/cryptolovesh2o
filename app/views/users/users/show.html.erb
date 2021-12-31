@@ -1,2 +1,14 @@
-<%= provide(:title, sanitize(display_name(@user)) + " on Ninth Digital") %>
+<%= provide(:title, sanitize(@user.username)) %>
 
+<div class="post-container">
+
+  <div class="pb5"></div>
+  <div class="title3 center">
+    Welcome to cryptolovesh2o
+  </div>
+
+  <div class="pb2"></div>
+  <div class="best">
+    Welcome to cryptolovesh2o, <%= @user.username %>!
+  </div>
+</div>
