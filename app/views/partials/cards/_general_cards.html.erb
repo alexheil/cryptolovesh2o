@@ -13,20 +13,20 @@
 <% elsif content_for?(:custom_og_header) %>
   <%= yield(:custom_og_header) %>
 <% else %>
-  <meta name="description" content="A platform for Readers, Writers, Storytellers, Educators, Artists, Poets, and Humans From Anywhere to share writing, stories, photos, art, poetry, or content." />
+  <meta name="description" content="A crypto blog for learning about blockchain technologies and cryptocurrencies." />
 
   <meta property="og:url" content="<%= root_url %>" />
   <meta property="og:title" content="<%= full_title(yield(:title)) %>" />
-  <meta property="og:description" content="A platform for Readers, Writers, Storytellers, Educators, Artists, Poets, and Humans From Anywhere to share writing, stories, photos, art, poetry, or content." />
+  <meta property="og:description" content="A crypto blog for learning about blockchain technologies and cryptocurrencies." />
   <meta property="og:image" content="<%= asset_url('ninth-digital-word-with-logo.png') %>" />
   <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="Ninth Digital" />
+  <meta property="og:site_name" content="cryptolovesh2o" />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="<%= full_title(yield(:title)) %>" />
-  <meta name="twitter:description" content="A platform for Readers, Writers, Storytellers, Educators, Artists, Poets, and Humans From Anywhere to share writing, stories, photos, art, poetry, or content." />
+  <meta name="twitter:description" content="A crypto blog for learning about blockchain technologies and cryptocurrencies." />
   <meta name="twitter:image" content="<%= asset_url('ninth-digital-word-with-logo.png') %>" />
   <meta name="twitter:url" content="<%= root_url %>" />
-  <meta name="twitter:site" content="@ninthdigital" />
-  <meta name="twitter:creator" content="@ninthdigital" />
+  <meta name="twitter:site" content="@cryptolovesh2o" />
+  <meta name="twitter:creator" content="@cryptolovesh2o" />
 <% end %>

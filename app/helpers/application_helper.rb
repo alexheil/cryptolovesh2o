@@ -1,9 +1,9 @@
 module ApplicationHelper
 
   def full_title(page_title = '')
-    base_title = "Ninth Digital"
+    base_title = "cryptolovesh2o"
     if page_title.empty?
-      "#{base_title} | A Publication Platform For Humans From Anywhere"
+      "#{base_title} | A Crypto Blog For Humans From Anywhere"
     elsif @user
       "#{page_title}"
     else

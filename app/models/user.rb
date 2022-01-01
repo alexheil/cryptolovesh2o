@@ -17,7 +17,7 @@ class User < ApplicationRecord
   has_many :following, through: :active_follows,  source: :followed
   has_many :followers, through: :passive_follows, source: :follower
 
-  validates :username, presence: true, uniqueness: true, length: { maximum: 50 }, format: { with: /\A[a-zA-Z0-9]+\Z/i }, exclusion: { in: %w{ login logout about terms privacy signin signout admin administrator ninthdigital posts faq discover} }
+  validates :username, presence: true, uniqueness: true, length: { maximum: 50 }, format: { with: /\A[a-zA-Z0-9]+\Z/i }, exclusion: { in: %w{ login logout about terms privacy signin signout admin administrator cryptolovesh2o posts faq discover} }
   validate :validate_username
 
   before_save :downcase_username

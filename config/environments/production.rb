@@ -84,16 +84,16 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  config.action_mailer.asset_host = 'https://www.ninth.digital'
+  config.action_mailer.asset_host = 'https://www.cryptolovesh2o.com'
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
-  host = 'ninth.digital'
+  host = 'cryptolovesh2o.com'
   config.action_mailer.default_url_options = { host: host }
   config.action_mailer.smtp_settings = {
     :authentication => :plain,
     :address => "smtp.mailgun.org",
     :port => 587,
-    :domain => "ninth.digital",
+    :domain => "cryptolovesh2o.com",
     :user_name => ENV['MAILGUN_USERNAME'],
     :password => ENV['MAILGUN_PASSWORD']
   }
