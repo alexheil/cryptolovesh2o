@@ -39,17 +39,6 @@ gem 'devise'
 
 gem 'kaminari'
 
-gem 'stripe'
-
-gem 'carrierwave', '~> 2.0'
-gem 'image_processing'
-gem 'mini_magick'
-gem 'fog-aws'
-
-gem 'cocoon'
-gem 'jquery-minicolors-rails'
-gem 'trix'
-
 group :production do
   gem 'pg'
   gem 'rails_12factor'
