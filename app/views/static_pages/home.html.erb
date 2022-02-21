@@ -12,8 +12,8 @@
           <% end %>
         </div>
 
-        <div class="center title2">
-          <span class="main bold title-underline">crypto</span><span class="black normal title-underline">loves</span><span class="secondary thin title-underline">h2o</span>
+        <div class="center title3">
+          <span class="black bold">Crypto Loves H2O</span>
         </div>
 
         <div class="pb3"></div>
@@ -34,41 +34,22 @@
       <%= spacing_static('b', '5') %>
       <div class="post-container">
 
-        <div class="title2 center">
-          Sign Up For Free
+        <div class="title1 center">
+          Enter your email to get crypto tips! (it's free!)
         </div>
         <%= spacing_static('b', '3') %>
 
-        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-          <%= render "devise/shared/error_messages", resource: resource %>
-
-          <div class="field">
-            <%= f.label :username %> <span class="darkgrey mini-text">*</span>
-            <%= f.text_field :username, class: "text-field" %>
+        <%= form_for(@global_email, url: emails_path, remote: true) do |f| %>
+          <span class="email_errors"><%= render 'partials/errors/email_errors' %></span>
+          <div class="flex">
+            <div class="two3rd-container">
+              <%= f.text_field :email, placeholder: 'Your email goes here...', class: "text-field" %>
+            </div>
+            <div class="one3rd-container">
+              <%= f.submit "Get tips!", data: { disable_with: 'Thank you...' }, class: "secondary-button" %>
+            </div>
           </div>
-
-          <div class="field">
-            <%= f.label :email %> <span class="darkgrey mini-text">*</span>
-            <%= f.email_field :email, autocomplete: "email", class: "text-field" %>
-          </div>
-
-          <div class="field">
-            <%= f.label :password %> <span class="darkgrey mini-text">*</span> <span class="darkgrey mini-text">8 characters minimum</span>
-            <%= f.password_field :password, autocomplete: "new-password", class: "text-field" %>
-          </div>
-
-          <%= f.submit "Sign up", data: { disable_with: 'Registering...' }, class: "main-button" %>
         <% end %>
-
-        <div class="mini-text center darkgrey pt1">
-          By clicking <span class="bold">Sign up</span> you agree to the <%= link_to "Terms of Use", terms_path %>.
-        </div>
-
-        <div class="pb5"></div>
-        
-        <div class="center">
-          <%= link_to "Do you already have an account? Log in here!", sign_in_path %>
-        </div>
 
       </div>
       <%= spacing_static('b', '5') %>

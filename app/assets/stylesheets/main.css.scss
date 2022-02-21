@@ -186,12 +186,12 @@ a {
 }
 
 .home-fifty {
-  @include container-inline(60%);
+  @include container-inline(100%);
   border-bottom: 2px solid $main;
 }
 
 .home-fifty-sign-in {
-  @include container-inline(40%);
+  @include container-inline(100%);
   border-bottom: 2px solid $secondary;
 }
 
