@@ -140,13 +140,6 @@ $color-background:
       @include link-color($black, $black);
     }
   }
-  .nd-header-logo {
-    img {
-      &:hover {
-        border: 2px solid $black;
-      }
-    }
-  }
   .nd-header-profile-pic {
     &:hover {
       border: 2px solid $black;
@@ -183,13 +176,6 @@ $color-background:
       @include link-color($white, $white);
     }
   }
-  .nd-header-logo {
-    img {
-      background: $white;
-      &:hover {
-        border: 2px solid $white;
-      }
-    }
   }
   .nd-header-profile-pic {
     &:hover {
@@ -287,13 +273,9 @@ $color-background:
     height: $width;
     display: block;
     border-radius: 25px;
-    border: 2px solid $grey;
     box-sizing: border-box;
-    padding: $spacerhalf;
     &:hover {
       @include transition;
-      border: 2px solid $black;
-      background: $light-grey;
     }
   }
 }
