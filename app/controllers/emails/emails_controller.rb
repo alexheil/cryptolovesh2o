@@ -9,7 +9,7 @@ class Emails::EmailsController < ApplicationController
         format.html { redirect_to root_url }
         format.js { render :action => "emails" }
         flash.now[:notice] = "You've successfully added your email!"
-        welcome_email(@global_email)
+        #welcome_email(@global_email)
       end
     else
       respond_to do |format|
