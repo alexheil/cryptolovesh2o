@@ -176,7 +176,6 @@ $color-background:
       @include link-color($white, $white);
     }
   }
-  }
   .nd-header-profile-pic {
     &:hover {
       border: 2px solid $white;
