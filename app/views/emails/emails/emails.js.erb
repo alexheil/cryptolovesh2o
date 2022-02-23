@@ -1,5 +1,6 @@
 <% if @result %>
   $('.email_form').html('<%=  escape_javascript(render :partial => 'emails/partials/success') %>');
+  $('.home_email').html('<%=  escape_javascript(render :partial => 'emails/partials/home_success') %>');
   $('.post_email_form').html('<%=  escape_javascript(render :partial => 'emails/partials/success') %>');
   $('.about_email_form').html('<%=  escape_javascript(render :partial => 'emails/partials/success') %>');
   $('.email_errors').fadeOut(300);

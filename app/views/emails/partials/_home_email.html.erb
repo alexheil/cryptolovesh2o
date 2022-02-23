@@ -1,0 +1,16 @@
+<div class="title1 center">
+  Enter your email to get crypto tips! (it's free!)
+</div>
+<%= spacing_static('b', '3') %>
+
+<%= form_for(@global_email, url: emails_path, remote: true) do |f| %>
+  <span class="email_errors"><%= render 'partials/errors/email_errors' %></span>
+  <div class="flex">
+    <div class="two3rd-container">
+      <%= f.text_field :email, placeholder: 'Your email goes here...', class: "text-field" %>
+    </div>
+    <div class="one3rd-container">
+      <%= f.submit "Get tips!", data: { disable_with: 'Thank you...' }, class: "secondary-button" %>
+    </div>
+  </div>
+<% end %>
