@@ -1,17 +1,7 @@
 <% if content_for?(:post_og_header) %>
   <%= yield(:post_og_header) %>
-<% elsif content_for?(:package_og_header) %>
-  <%= yield(:package_og_header) %>
 <% elsif content_for?(:category_og_header) %>
   <%= yield(:category_og_header) %>
-<% elsif content_for?(:site_og_header) %>
-  <%= yield(:site_og_header) %>
-<% elsif content_for?(:tutorial_og_header) %>
-  <%= yield(:tutorial_og_header) %>
-<% elsif content_for?(:addon_og_header) %>
-  <%= yield(:addon_og_header) %>
-<% elsif content_for?(:custom_og_header) %>
-  <%= yield(:custom_og_header) %>
 <% else %>
   <meta name="description" content="A crypto blog for learning about blockchain technologies and cryptocurrencies." />
 

@@ -1,4 +1,4 @@
 class UserMailer < ApplicationMailer
-  default from: 'cryptolovesh2o <notifications@cryptolovesh2o.com>'
+  default from: 'Crypto Loves H2O <notifications@cryptolovesh2o.com>'
 
 end
