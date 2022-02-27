@@ -13,9 +13,9 @@
 
     <div style="text-align: center;">
       <% if @user %>
-        <%= link_to "Click here to go to your account on cryptolovesh2o", user_url(@user), style: "text-decoration: none; color: #fc9580; cursor: pointer; -webkit-transition: .3s; font-weight: 700;" %>
+        <%= link_to "Click here to go to your account on cryptolovesh2o", user_url(@user), style: "text-decoration: none; color: #FD7ECB; cursor: pointer; -webkit-transition: .3s; font-weight: 700;" %>
       <% else %>
-        <%= link_to "Click here to go to back to cryptolovesh2o", root_url, style: "text-decoration: none; color: #fc9580; cursor: pointer; -webkit-transition: .3s; font-weight: 700;" %>
+        <%= link_to "Click here to go to back to cryptolovesh2o", root_url, style: "text-decoration: none; color: #FD7ECB; cursor: pointer; -webkit-transition: .3s; font-weight: 700;" %>
       <% end %>
     </div>
 
@@ -34,10 +34,18 @@
     <div style="padding-bottom: 100px;"></div>
 
     <div style="text-align: center;">
+      <div style="font-size: .75em; line-height: 1em;">
+        <%= link_to "Unsubscribe", (@user ? edit_user_settings_url(@user) : unsubscribe_email_url(@email)), style: "text-decoration: none; color: #FD7ECB; cursor: pointer; -webkit-transition: .3s; font-weight: 700;" %>
+      </div>
+    </div>
+
+    <div style="padding-bottom: 100px;"></div>
+
+    <div style="text-align: center;">
 
       <div style="font-size: .75em; line-height: 1em;">
-        <%= link_to(root_url, style: "text-decoration: none; color: #fc9580; cursor: pointer; -webkit-transition: .3s; font-weight: 700;") do %>
-          <span style="color: #fc9580; font-weight: 700;">ninth</span><span style="color: #202324; font-weight: 400;">.</span><span style="color: #80e7fc; font-weight: 300;">digital</span>
+        <%= link_to(root_url, style: "text-decoration: none; color: #FD7ECB; cursor: pointer; -webkit-transition: .3s; font-weight: 700;") do %>
+          <span style="color: #202324; font-weight: 700;">Crypto Loves H2O</span>
         <% end %>
       </div>
 
@@ -53,11 +61,6 @@
         Buffalo, New York 14213
       </div>
 
-      <div style="padding-bottom: 10px;"></div>
-
-      <div style="font-size: .75em; line-height: 1em;">
-        <%= link_to "Unsubscribe", (@user ? edit_user_settings_url(@user) : unsubscribe_email_url(@email)), style: "text-decoration: none; color: #fc9580; cursor: pointer; -webkit-transition: .3s; font-weight: 700;" %>
-      </div>
     </div>
 
   </body>
