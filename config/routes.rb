@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'about', to: 'static_pages#about'
   get 'terms', to: 'static_pages#terms', path: 'terms-of-use'
   get 'privacy', to: 'static_pages#privacy', path: 'privacy-policy'
+  get 'wallets', to: 'static_pages#wallets', path: 'wallets'
 
   match "/404", to: "errors#404", via: :all
   match "/422", to: "errors#422", via: :all

@@ -127,6 +127,14 @@ body {
   color: $black;
 }
 
+.main {
+  color: $main;
+}
+
+.secondary {
+  color: $secondary;
+}
+
 .darkgrey {
   color: $darkgrey;
 }
@@ -514,7 +522,6 @@ a {
 
 @mixin img-border {
   border: $boxborder;
-  background-color: $secondary-light;
   border-radius: $radius + 2px;
 }
 
@@ -525,6 +532,7 @@ img {
 
 .img-border {
   @include img-border;
+  background-color: $secondary-light;
 }
 
 @mixin image-pieces($height) {
@@ -567,10 +575,15 @@ img {
   }
 }
 
+.sendcrypto {
+  @include img-border;
+  background-color: $main-light;
+}
+
 .tldr,
 .wyl {
   box-sizing: border-box;
-  border: 2px solid #d1dddf;
+  border: $boxborder;
   border-radius: $radius;
   padding: 0 $spacer3 $spacer3 $spacer3;
   background: $secondary-light;
