@@ -1,4 +1,4 @@
-<%= provide(:title, sanitize(@post.title) + " | " + sanitize(@post.category.title)) %>
+<%= provide(:title, sanitize(@post.title)) %>
 
 <%= render 'partials/cards/post_cards' %>
 
