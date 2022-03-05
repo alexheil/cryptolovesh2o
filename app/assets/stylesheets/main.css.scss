@@ -109,6 +109,10 @@ body {
   background: $main;
 }
 
+.overflow {
+  overflow: hidden;
+}
+
 /* *************** LINKS ******************** */
 
 @mixin link-color($color, $hover) {
