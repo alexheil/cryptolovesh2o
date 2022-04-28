@@ -28,7 +28,7 @@ Rails.application.routes.draw do
   resources :posts, controller: 'posts/posts', path: 'blog-posts'
   resources :categories, controller: 'categories/categories', path: 'category'
 
-  resources :contacts, controller: 'contacts/contacts', path: 'contact'
+  #resources :contacts, controller: 'contacts/contacts', path: 'contact'
 
   resources :emails, controller: 'emails/emails', only: [:create, :destroy] do 
     member do
