@@ -13,9 +13,9 @@
 
     <div style="text-align: center;">
       <% if @user %>
-        <%= link_to "Click here to go to your account on Crypto Loves H2O", user_url(@user), style: "text-decoration: none; color: #FD7ECB; cursor: pointer; -webkit-transition: .3s; font-weight: 700;" %>
+        <%= link_to "Click here to go to your account on Crypto Loves H2O", user_url(@user), style: "text-decoration: none; color: #80E7FC; cursor: pointer; -webkit-transition: .3s; font-weight: 700;" %>
       <% else %>
-        <%= link_to "Click here to go to back to Crypto Loves H2O", root_url, style: "text-decoration: none; color: #FD7ECB; cursor: pointer; -webkit-transition: .3s; font-weight: 700;" %>
+        <%= link_to "Click here to go to back to Crypto Loves H2O", root_url, style: "text-decoration: none; color: #80E7FC; cursor: pointer; -webkit-transition: .3s; font-weight: 700;" %>
       <% end %>
     </div>
 
@@ -35,7 +35,7 @@
 
     <div style="text-align: center;">
       <div style="font-size: .75em; line-height: 1em;">
-        <%= link_to "Unsubscribe", (@user ? edit_user_settings_url(@user) : unsubscribe_email_url(@email)), style: "text-decoration: none; color: #FD7ECB; cursor: pointer; -webkit-transition: .3s; font-weight: 700;" %>
+        <%= link_to "Unsubscribe", (@user ? edit_user_settings_url(@user) : unsubscribe_email_url(@email)), style: "text-decoration: none; color: #80E7FC; cursor: pointer; -webkit-transition: .3s; font-weight: 700;" %>
       </div>
     </div>
 
@@ -44,7 +44,7 @@
     <div style="text-align: center;">
 
       <div style="font-size: .75em; line-height: 1em;">
-        <%= link_to(root_url, style: "text-decoration: none; color: #FD7ECB; cursor: pointer; -webkit-transition: .3s; font-weight: 700;") do %>
+        <%= link_to(root_url, style: "text-decoration: none; color: #80E7FC; cursor: pointer; -webkit-transition: .3s; font-weight: 700;") do %>
           <span style="color: #202324; font-weight: 700;">Crypto Loves H2O</span>
         <% end %>
       </div>

@@ -4,13 +4,13 @@
   *= require_self
 */
 
-$main: #FD7ECB; /* emerald */
-$main-dark: #9E4F7F;
-$main-light: #FFEFF9;
+$main: #80E7FC; /* emerald */
+$main-dark: #70CADD;
+$main-light: #EFFCFF;
 
-$secondary: #80e7fc; /* carrot */
-$secondary-dark: #70cadd;
-$secondary-light: #effcff;
+$secondary: #FC9580; /* carrot */
+$secondary-dark: #DD8270;
+$secondary-light: #FFF2EF;
 
 $green: #19de6b; /* seaweed */
 $green-dark: #16c25e; /* seaweed */
@@ -412,7 +412,7 @@ a {
 }
 
 .package-border {
-  @include border-pieces($spacer3 $spacer3, #effcff, #d1dddf);
+  @include border-pieces($spacer3 $spacer3, #FFF2EF, #d1dddf);
   @include transition;
   cursor: pointer;
   &:hover {
