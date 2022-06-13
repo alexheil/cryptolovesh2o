@@ -71,10 +71,11 @@
   <% if @posts.present? %>
     <% if Post.all.count > 15 %>
       <%= link_to posts_path do %>
-        <div class="title1">
+        <div class="title1 center">
           View more...
         </div>
       <% end %>
+      <div class="pb5"></div>
     <% end %>
   <% end %>
 </div>
