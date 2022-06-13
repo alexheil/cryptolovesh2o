@@ -70,9 +70,11 @@
 
   <% if @posts.present? %>
     <% if Post.all.count > 15 %>
-      <div class="center">
-        <%= paginate @posts %>
-      </div>
+      <%= link_to posts_path do %>
+        <div class="title1">
+          View more...
+        </div>
+      <% end %>
     <% end %>
   <% end %>
 </div>
