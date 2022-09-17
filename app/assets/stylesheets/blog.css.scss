@@ -144,6 +144,12 @@ h1 {
   margin-block-end: 0;
 }
 
+h2, h3 {
+  display: initial;
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
 /* *************** LINKS ******************** */
 
 @mixin link-color($color, $hover) {
