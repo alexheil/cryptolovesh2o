@@ -41,12 +41,6 @@
               <li><%= link_to 'Addons', addons_path, class: 'nav-links' %></li>
               <li><%= link_to 'Blog', posts_path, class: 'nav-links' %></li>
               <li><%= link_to 'Tutorials', tutorials_path, class: 'nav-links' %></li>
-              <% if user_signed_in? %>
-                <li><%= link_to 'Account', user_path(current_user), class: 'nav-links' %></li>
-                <li><%= link_to 'Sign Out', sign_out_path, class: 'nav-links' %></li>
-              <% else %>
-                <li><%= link_to 'Sign In', sign_in_path, class: "nav-links" %></li>
-              <% end %>
             </nav>
           </div>
         </div>
@@ -100,13 +94,6 @@
         <li><%= link_to 'Portfolio', sites_path, class: "nav-links" %></li>
         <li><%= link_to 'Blog', posts_path, class: "nav-links" %></li>
         <li><%= link_to 'Tutorials', tutorials_path, class: "nav-links" %></li>
-        <% if user_signed_in? %>
-          <li><%= link_to 'Account', user_path(current_user), class: "nav-links" %></li>
-          <li><%= link_to 'Settings', edit_user_settings_path(current_user), class: "nav-links" %></li>
-          <li><%= link_to 'Sign Out', sign_out_path, class: "nav-links" %></li>
-        <% else %>
-          <li><%= link_to 'Sign In', sign_in_path, class: "nav-links" %></li>
-        <% end %>
       </ul>
 
     </header>

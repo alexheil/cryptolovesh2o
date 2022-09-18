@@ -1,20 +1,18 @@
-<% unless user_signed_in? %>
-  <div class="pb5"></div>
-  <div class="small-email-border">
-    <div class="center bold">
-       Get more tips on <%= category.title %> for free by entering your email below.
-    </div>
-    <div class="pb1"></div>
-    <%= form_for(@global_email, url: emails_path, remote: true) do |f| %>
-      <span class="email_errors"><%= render 'partials/errors/email_errors' %></span>
-      <div class="flex">
-        <div class="two3rd-container">
-          <%= f.text_field :email, placeholder: 'Your email goes here...', class: "text-field" %>
-        </div>
-        <div class="one3rd-container">
-          <%= f.submit "Get tips!", data: { disable_with: 'Thank you...' }, class: "secondary-button" %>
-        </div>
-      </div>
-    <% end %>
+<div class="pb5"></div>
+<div class="small-email-border">
+  <div class="center bold">
+     Get more tips on <%= category.title %> for free by entering your email below.
   </div>
-<% end %>
+  <div class="pb1"></div>
+  <%= form_for(@global_email, url: emails_path, remote: true) do |f| %>
+    <span class="email_errors"><%= render 'partials/errors/email_errors' %></span>
+    <div class="flex">
+      <div class="two3rd-container">
+        <%= f.text_field :email, placeholder: 'Your email goes here...', class: "text-field" %>
+      </div>
+      <div class="one3rd-container">
+        <%= f.submit "Get tips!", data: { disable_with: 'Thank you...' }, class: "secondary-button" %>
+      </div>
+    </div>
+  <% end %>
+</div>
