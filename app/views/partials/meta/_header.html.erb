@@ -22,16 +22,7 @@
 
       <div class="nd-nav-container right">
         
-        <nav class="nd-header">
-          <% if user_signed_in? %>            
-
-
-          <% else %>
-            <span class="desktop-only"><li><%= link_to 'Sign In', sign_in_path, class: "nav-links" %></li></span>
-            <span class="desktop-only"><li><%= link_to 'Register', register_path, class: "nav-links" %></li></span>
-          <% end %>
-          <li id="menu-click-open"><i class="fas fa-ellipsis-v"></i></li>
-        </nav>
+        
       </div>
 
     </div>

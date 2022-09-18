@@ -20,9 +20,9 @@ Rails.application.routes.draw do
   end
 
   resources :admins, controller: 'admins/admins', only: :show, path: 'admins' do
-    get 'user_panel', to: 'admins/admins#user_panel'
+  #  get 'user_panel', to: 'admins/admins#user_panel'
     get 'email_panel', to: 'admins/admins#email_panel'
-    get 'contact_panel', to: 'admins/admins#contact_panel'
+  #  get 'contact_panel', to: 'admins/admins#contact_panel'
   end
 
   resources :posts, controller: 'posts/posts', path: 'blog-posts'
@@ -36,17 +36,17 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :follows, controller: 'follows/follows', only: [:create, :destroy]
+  #resources :follows, controller: 'follows/follows', only: [:create, :destroy]
 
-  devise_for :users, controllers: { sessions: "users/sessions", passwords: "users/passwords", registrations: "users/registrations", confirmations: "users/confirmations",  unlocks: "users/unlocks"}
+  #devise_for :users, controllers: { sessions: "users/sessions", passwords: "users/passwords", registrations: "users/registrations", confirmations: "users/confirmations",  unlocks: "users/unlocks"}
 
-  devise_scope :user do
-    get 'sign_out', to: 'users/sessions#destroy', path: 'sign-out'
-    get 'sign_in', to: 'users/sessions#new', path: 'sign-in'
-    get 'register', to: 'users/registrations#new'
-    get 'edit_user_account', to: 'users/registrations#edit', path: ':user_id/dashboard/settings'
-  end
+  #devise_scope :user do
+  #  get 'sign_out', to: 'users/sessions#destroy', path: 'sign-out'
+  #  get 'sign_in', to: 'users/sessions#new', path: 'sign-in'
+  #  get 'register', to: 'users/registrations#new'
+  #  get 'edit_user_account', to: 'users/registrations#edit', path: ':user_id/dashboard/settings'
+  #end
 
-  resources :users, controller: 'users/users', only: [:show, :update], path: ''
+  #resources :users, controller: 'users/users', only: [:show, :update], path: ''
 
 end
