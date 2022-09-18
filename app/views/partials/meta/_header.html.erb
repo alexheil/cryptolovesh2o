@@ -66,13 +66,7 @@
 
       <ul>
         <div class="pb3"></div>
-        <% if user_signed_in? %>
-          <li><%= link_to 'Account', user_path(current_user), class: "nav-links" %></li>
-          <li><%= link_to 'Sign Out', sign_out_path, class: "nav-links" %></li>
-        <% else %>
-          <li><%= link_to 'Sign In', sign_in_path, class: "nav-links" %></li>
-          <li><%= link_to 'Register', register_path, class: "nav-links" %></li>
-        <% end %>
+        
       </ul>
 
     </header>

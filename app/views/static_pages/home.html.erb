@@ -1,46 +1,45 @@
-<% unless user_signed_in? %>
-  <div class="flex">
-    <div class="home-fifty main-light-background">
-      <div class="pb5"></div>
-      <div class="post-container">
+<div class="flex">
+  <div class="home-fifty main-light-background">
+    <div class="pb5"></div>
+    <div class="post-container">
 
-        <div class="home-logo-container">
-          <%= link_to(root_url) do %>
-            <div class="home-logo">
-              <%= image_tag("ninth-digital-logo-email.png", alt: "cryptolovesh2o Logo") %>
-            </div>
-          <% end %>
-        </div>
+      <div class="home-logo-container">
+        <%= link_to(root_url) do %>
+          <div class="home-logo">
+            <%= image_tag("ninth-digital-logo-email.png", alt: "cryptolovesh2o Logo") %>
+          </div>
+        <% end %>
+      </div>
 
-        <div class="center title3">
-          <span class="black bold">Crypto Loves H2O</span>
-        </div>
+      <div class="center title3">
+        <span class="black bold">Crypto Loves H2O</span>
+      </div>
 
-        <div class="pb3"></div>
+      <div class="pb3"></div>
+      <div class="pbhalf"></div>
+
+      <div class="title2 center">
+        A Cryptocurrency Blog
         <div class="pbhalf"></div>
-
-        <div class="title2 center">
-          A Cryptocurrency Blog
-          <div class="pbhalf"></div>
-          — for —
-          <div class="pbhalf"></div>
-          Humans From Anywhere
-        </div>
-
-        <div class="pb5"></div>
+        — for —
+        <div class="pbhalf"></div>
+        Humans From Anywhere
       </div>
-    </div>
-    <div class="home-fifty-sign-in secondary-light-background">
-      <%= spacing_static('b', '5') %>
-      <div class="post-container">
 
-      <span class="home_email"><%= render 'emails/partials/home_email' %></span>
-
-      </div>
-      <%= spacing_static('b', '5') %>
+      <div class="pb5"></div>
     </div>
   </div>
-<% end %>
+  <div class="home-fifty-sign-in secondary-light-background">
+    <%= spacing_static('b', '5') %>
+    <div class="post-container">
+
+    <span class="home_email"><%= render 'emails/partials/home_email' %></span>
+
+    </div>
+    <%= spacing_static('b', '5') %>
+  </div>
+</div>
+
 
 <div class="main-container">
   <div class="pb5"></div>
