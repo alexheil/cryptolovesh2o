@@ -17,7 +17,7 @@
 
   <div class="pb4"></div>
   <div class="darkgrey center bold">
-    <%= pluralize(@post.readtime, 'minute') %> to read | <%= posted(@post.created_at) %>
+    <%= link_to @category.title, category_path(@category) %> | <%= pluralize(@post.readtime, 'minute') %> to read | <%= posted(@post.created_at) %>
   </div>
 
   <div class="pb5"></div>
@@ -27,13 +27,8 @@
     <%= sanitize(@post.tldr) %>
   </div>
 
-  <%= render 'partials/share/post_share_buttons' %>
-
   <div class="pb5"></div>
   <%= render 'partials/ads/ads' %>
-
-  <div class="pb5"></div>
-  <%= render 'partials/ads/sendcrypto' %>
 
   <div class="pb2"></div>
   <div class="best">

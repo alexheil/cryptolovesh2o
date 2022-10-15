@@ -9,7 +9,8 @@ class Posts::PostsController < ApplicationController
 
   def show
     @post = Post.friendly.find(params[:id])
-    @recent_posts = Post.newest.limit(2)
+    @category = @post.category
+    @recent_posts = Post.newest.limit(3)
   end
 
   def new

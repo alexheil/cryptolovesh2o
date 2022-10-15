@@ -588,7 +588,7 @@ img {
 
 .sendcrypto {
   @include img-border;
-  background-color: $main-light;
+  background-color: $secondary-light;
 }
 
 .tldr,
@@ -597,7 +597,7 @@ img {
   border: $boxborder;
   border-radius: $radius;
   padding: 0 $spacer3 $spacer3 $spacer3;
-  background: $secondary-light;
+  background: $main-light;
 }
 
 .tldr {
